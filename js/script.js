@@ -49,8 +49,14 @@ function getPlayerAnswer() {
     return playerAnswer;
 }
 
-
 // return the score of each game to the screen
+function showRoundResult (resultMessage) {
+    const resultParagrah = document.createElement("p");
+    resultParagrah.textContent = `${resultMessage}`;
+    document.body.appendChild(resultParagrah);
+}
+
+
 // return the final score
 
 let numberOfGames = 0;
@@ -65,11 +71,11 @@ document.getElementById("submitAnswer").addEventListener("click", function () {
         let roundResult = playRound(playerAnswer, computerAnswer);
 
         // keep track and update the score
-
         playerScore += roundResult.playerWins;
         computerScore += roundResult.computerWins;
-
         console.log(`Player is at ${playerScore}. Computer is at ${computerScore}.`);
+
+        showRoundResult(roundResult.message);
 
         numberOfGames++;
 
