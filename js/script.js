@@ -64,7 +64,7 @@ function determineWinner(playerScore, computerScore) {
 function showRoundResult (resultMessage) {
     const resultParagrah = document.createElement("p");
     resultParagrah.textContent = `${resultMessage}`;
-    document.body.appendChild(resultParagrah);
+    document.getElementById("game-container").appendChild(resultParagrah);
 }
 
 // return the final result of the game
