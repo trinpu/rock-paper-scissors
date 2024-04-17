@@ -49,7 +49,7 @@ function getPlayerAnswer() {
     return playerAnswer;
 }
 
-// keep track of score
+
 // return the score of each game to the screen
 // return the final score
 
@@ -63,6 +63,13 @@ document.getElementById("submitAnswer").addEventListener("click", function () {
         let playerAnswer = getPlayerAnswer();
         let computerAnswer = getComputerAnswer();
         let roundResult = playRound(playerAnswer, computerAnswer);
+
+        // keep track and update the score
+
+        playerScore += roundResult.playerWins;
+        computerScore += roundResult.computerWins;
+
+        console.log(`Player is at ${playerScore}. Computer is at ${computerScore}.`);
 
         numberOfGames++;
 
