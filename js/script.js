@@ -70,7 +70,7 @@ function showRoundResult (resultMessage) {
 // return the final result of the game
 function showGameResult (gameResultMessage) {
     const resultParagrah = document.createElement("p");
-    resultParagrah.textContent = `${gameResultMessage}`;
+    resultParagrah.innerHTML = `<strong>${gameResultMessage}</strong>`;
     document.body.appendChild(resultParagrah);
 }
 
