@@ -1,5 +1,5 @@
-// evaulaute player answer
-function determineRoundResult(playerAnswer, computerAnswer) {
+// play a round by comparing the player and computer answer
+function playRound(playerAnswer, computerAnswer) {
 
     let playerWins = 0;
     let computerWins = 0;
@@ -41,7 +41,7 @@ function getComputerAnswer () {
     return computerAnswer
 }
 
-// player can play a maximum if 5 rounds
+
 // get the players answer
 function getPlayerAnswer() {
     let playerAnswer = document.getElementById("playerAnswer").value;
@@ -52,20 +52,28 @@ function getPlayerAnswer() {
 // keep track of score
 // return the score of each game to the screen
 // return the final score
-// prevent players to play again after 5 attempts
-// let numberOfGames = 0;
-// document.getElementById("submitAnswer").addEventListener("click", function () {
 
-    
-//     let playerAnswer = document.getElementById("playerAnswer").value;
-//     playerAnswer = playerAnswer.trim().toLowerCase();
-    
-    
-//     numberOfGames++;
+let numberOfGames = 0;
+let playerScore = 0;
+let computerScore = 0;
 
-//     const setResultMessage = document.createElement("p");
-//     setResultMessage.textContent = `You chose ${playerAnswer}`;
-//     document.body.appendChild(setResultMessage);
+document.getElementById("submitAnswer").addEventListener("click", function () {
+
+    if (numberOfGames < 5) {
+        let playerAnswer = getPlayerAnswer();
+        let computerAnswer = getComputerAnswer();
+        let roundResult = playRound(playerAnswer, computerAnswer);
+
+        numberOfGames++;
+
+    } else {
+        // prevent players to play again after 5 attempts
+        alert("You have played 5 games already. Please refresh the page to play again.");
+    }
+
+    // const setResultMessage = document.createElement("p");
+    // setResultMessage.textContent = `You chose ${playerAnswer}`;
+    // document.body.appendChild(setResultMessage);
 
 
-// });
+});
