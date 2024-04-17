@@ -43,6 +43,11 @@ function getComputerAnswer () {
 
 // player can play a maximum if 5 rounds
 // get the players answer
+function getPlayerAnswer() {
+    let playerAnswer = document.getElementById("playerAnswer").value;
+    playerAnswer = playerAnswer.trim().toLowerCase();
+    return playerAnswer;
+}
 
 // keep track of score
 // return the score of each game to the screen
