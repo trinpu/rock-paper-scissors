@@ -49,6 +49,17 @@ function getPlayerAnswer() {
     return playerAnswer;
 }
 
+// determine the winner of the game
+function determineWinner(playerScore, computerScore) {
+    if (playerScore > computerScore) {
+        return `You win the game ${playerScore}:${computerScore}!`;
+    } else if (playerScore < computerScore) {
+        return `You lost. The computer won the game ${playerScore}:${computerScore} :(`;
+    } else {
+        return `It's a ${playerScore}:${computerScore} tie!`;
+    }
+}
+
 // return the score of each game to the screen
 function showRoundResult (resultMessage) {
     const resultParagrah = document.createElement("p");
@@ -56,9 +67,15 @@ function showRoundResult (resultMessage) {
     document.body.appendChild(resultParagrah);
 }
 
+// return the final result of the game
+function showGameResult (gameResultMessage) {
+    const resultParagrah = document.createElement("p");
+    resultParagrah.textContent = `${gameResultMessage}`;
+    document.body.appendChild(resultParagrah);
+}
 
-// return the final score
 
+// Core game logic
 let numberOfGames = 0;
 let playerScore = 0;
 let computerScore = 0;
@@ -73,20 +90,18 @@ document.getElementById("submitAnswer").addEventListener("click", function () {
         // keep track and update the score
         playerScore += roundResult.playerWins;
         computerScore += roundResult.computerWins;
-        console.log(`Player is at ${playerScore}. Computer is at ${computerScore}.`);
 
         showRoundResult(roundResult.message);
-
         numberOfGames++;
+
+        if (numberOfGames === 5) {
+            let gameResult = determineWinner(playerScore, computerScore);
+            showGameResult(gameResult);
+        }
 
     } else {
         // prevent players to play again after 5 attempts
         alert("You have played 5 games already. Please refresh the page to play again.");
     }
-
-    // const setResultMessage = document.createElement("p");
-    // setResultMessage.textContent = `You chose ${playerAnswer}`;
-    // document.body.appendChild(setResultMessage);
-
 
 });
