@@ -1,35 +1,35 @@
 // play a round by comparing the player and computer answer
 function playRound(playerAnswer, computerAnswer) {
 
-    let playerWins = 0;
-    let computerWins = 0;
-    let message = "";
+    let playerResult = 0;
+    let computerResult = 0;
+    let outcome = "";
 
     if (playerAnswer === computerAnswer) {
-        message = "It's a tie!";
+        outcome = "It's a tie!";
     } else if (playerAnswer === "rock" && computerAnswer === "scissors") {
-        message = "You win! Rock beats Scissors!";
-        playerWins++;
+        outcome = "You win! Rock beats Scissors!";
+        playerResult++;
     } else if (playerAnswer === "rock" && computerAnswer === "paper") {
-        message = "You lose! Paper beats Rock!";
-        computerWins++;
+        outcome = "You lose! Paper beats Rock!";
+        computerResult++;
     } else if (playerAnswer === "paper" && computerAnswer === "rock") {
-        message = "You win! Paper beats Rock!";
-        playerWins++;
+        outcome = "You win! Paper beats Rock!";
+        playerResult++;
     } else if (playerAnswer === "paper" && computerAnswer === "scissors") {
-        message = "You lose! Scissors beats Paper!";
-        computerWins++;
+        outcome = "You lose! Scissors beats Paper!";
+        computerResult++;
     } else if (playerAnswer === "scissors" && computerAnswer === "paper") {
-        message = "You win! Scissors beats Paper!";
-        playerWins++;
+        outcome = "You win! Scissors beats Paper!";
+        playerResult++;
     } else if (playerAnswer === "scissors" && computerAnswer === "rock") {
-        message = "You lose! Rock beats Scissors!";
-        computerWins++;
+        outcome = "You lose! Rock beats Scissors!";
+        computerResult++;
     } else {
-        message = "Invalid input!";
+        outcome = "Invalid input!";
     }
 
-    return { message, playerWins, computerWins };
+    return { outcome, playerResult, computerResult };
 
 }
 
@@ -88,10 +88,10 @@ document.getElementById("submitAnswer").addEventListener("click", function () {
         let roundResult = playRound(playerAnswer, computerAnswer);
 
         // keep track and update the score
-        playerScore += roundResult.playerWins;
-        computerScore += roundResult.computerWins;
+        playerScore += roundResult.playerResult;
+        computerScore += roundResult.computerResult;
 
-        showRoundResult(roundResult.message);
+        showRoundResult(roundResult.outcome);
         numberOfGames++;
 
         if (numberOfGames === 5) {
