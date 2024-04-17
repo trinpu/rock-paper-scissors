@@ -34,9 +34,10 @@ function determineRoundResult(playerAnswer, computerAnswer) {
 }
 
 // calculate computers answer
-function getComputerAnswer {
+function getComputerAnswer () {
     let possibleAnswers = ["rock", "paper", "scissors"];
     let computerAnswer = Math.floor(Math.random() * possibleAnswers.length);
+    computerAnswer = possibleAnswers[computerAnswer];
     return computerAnswer
 }
 
@@ -47,12 +48,19 @@ function getComputerAnswer {
 // return the score of each game to the screen
 // return the final score
 // prevent players to play again after 5 attempts
-
+// let numberOfGames = 0;
 // document.getElementById("submitAnswer").addEventListener("click", function () {
-//         let playerAnswer = document.getElementById("playerAnswer").value;
-//         playerAnswer = playerAnswer.trim().toLowerCase();
 
-//         const setResultMessage = document.createElement("p");
-//         setResultMessage.textContent = `You chose ${playerAnswer}`;
-//         document.body.appendChild(setResultMessage);
+    
+//     let playerAnswer = document.getElementById("playerAnswer").value;
+//     playerAnswer = playerAnswer.trim().toLowerCase();
+    
+    
+//     numberOfGames++;
+
+//     const setResultMessage = document.createElement("p");
+//     setResultMessage.textContent = `You chose ${playerAnswer}`;
+//     document.body.appendChild(setResultMessage);
+
+
 // });
