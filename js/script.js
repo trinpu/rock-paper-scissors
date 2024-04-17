@@ -33,11 +33,26 @@ function determineRoundResult(playerAnswer, computerAnswer) {
 
 }
 
+// calculate computers answer
+function getComputerAnswer {
+    let possibleAnswers = ["rock", "paper", "scissors"];
+    let computerAnswer = Math.floor(Math.random() * possibleAnswers.length);
+    return computerAnswer
+}
 
 // player can play a maximum if 5 rounds
 // get the players answer
-// calculate computers answer
+
 // keep track of score
 // return the score of each game to the screen
 // return the final score
 // prevent players to play again after 5 attempts
+
+// document.getElementById("submitAnswer").addEventListener("click", function () {
+//         let playerAnswer = document.getElementById("playerAnswer").value;
+//         playerAnswer = playerAnswer.trim().toLowerCase();
+
+//         const setResultMessage = document.createElement("p");
+//         setResultMessage.textContent = `You chose ${playerAnswer}`;
+//         document.body.appendChild(setResultMessage);
+// });
